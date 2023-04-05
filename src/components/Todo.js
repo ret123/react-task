@@ -45,15 +45,15 @@ function Todo() {
     const [tasksCompleted, setTasksCompleted] = useState(0);
     const [tasks, setTasks] = useState([
         {
-            title: "Grab some Pizza",
+            title: "Morning Walk",
             completed: true
         },
         {
-            title: "Do your workout",
+            title: "Breakfast",
             completed: true
         },
         {
-            title: "Hangout with friends",
+            title: "Project Deployments",
             completed: false
         }
     ]);
