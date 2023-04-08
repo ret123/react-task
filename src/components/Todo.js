@@ -1,44 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Todo.css';
+import '../assets/Todo.css';
+import Task from './Task';
+import CreateTask from './CreateTask';
 
-
-function Task({ task, index, completeTask, removeTask }) {
-    return (
-        <div
-            className="task"
-            style={{ textDecoration: task.completed ? "line-through" : "" }}
-        >
-            {task.title}
-
-            <button style={{ background: "red" }} onClick={() => removeTask(index)}>x</button>
-           {!task.completed ?  <button onClick={() => completeTask(index)}>Complete</button> : ""} 
-
-        </div>
-    );
-}
-
-function CreateTask({ addTask }) {
-    const [value, setValue] = useState("");
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        if (!value) return;
-        addTask(value);
-        setValue("");
-    }
-    return (
-        <form onSubmit={handleSubmit} className="form" >
-            <input
-                type="text"
-                className="input"
-                value={value}
-                placeholder="Add a new task"
-                onChange={e => setValue(e.target.value)}
-            />
-            <button >Add</button>
-        </form>
-    );
-}
 
 function Todo() {
     const [tasksRemaining, setTasksRemaining] = useState(0);
@@ -59,7 +23,7 @@ function Todo() {
     ]);
 
     useEffect(() => { setTasksRemaining(tasks.filter(task => !task.completed).length) });
-useEffect(() => { setTasksCompleted(tasks.filter(task => task.completed).length) });
+    useEffect(() => { setTasksCompleted(tasks.filter(task => task.completed).length) });
 
 
     const addTask = title => {
